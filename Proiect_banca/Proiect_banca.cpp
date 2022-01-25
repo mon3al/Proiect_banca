@@ -37,14 +37,16 @@ int main()
         std::cout << " 4 -> Stergere cont\n";
         std::cout << " 5 -> Eliberare/depunere\n";
         std::cout << " 6 -> Detalii cont\n";
-        std::cout << " 0 -> exit\n";
+        std::cout << " 0 -> Exit\n";
 
         std::cout << " introduceti operatia pe care o doriti\n";
         std::cin >> optiune;
         switch (optiune)
+
         {
         case 1:
             std::cout << "Ati ales optiuna 1\n";
+            std::cout << " Numarul total de contunturi este :" << manager.GetNumarConturi()<< std::endl;
             break;
         case 2:
             std::cout << "Ati ales optiuna 2\n";
@@ -58,10 +60,12 @@ int main()
             std::cout << "Ati ales optiuna 4\n";
             break;
         case 5:
-            std::cout << "Ati ales optiuna 4\n";
+            std::cout << "Ati ales optiuna 5\n";
             break;
         case 6:
-            std::cout << "Ati ales optiuna 4\n";
+            std::cout << "Ati ales optiuna 6\n";
+            system("cls");
+            manager.printAllConturi();
             break;
         default:
             std::cout << "Optiune invalida\n";
