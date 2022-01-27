@@ -27,7 +27,7 @@
 int main()
 {
     ManagerConturi manager;
-    int optiune;
+    int optiune, detalii;
     do
     {
         std::cout << "Alege una din urmatoarele optiuni\n";
@@ -65,8 +65,25 @@ int main()
         case 6:
             std::cout << "Ati ales optiuna 6\n";
             system("cls");
-            manager.printAllConturi();
-            break;
+            std::cout << " Apasati -> 1  daca doriti sa cautati un cont anume \n";
+            std::cout << " Apasati -> 2  daca doriti afisarea tuturor conturilor\n";
+            std::cin >> detalii;
+            switch (detalii)
+            {
+            case 1:
+                std::cout << "Ati ales sa cautati un anumit cont\n ";
+                manager.CautaCont();
+                break;
+            case 2:
+                std::cout << " Ati ales sa afisati toate conturile\n";
+                //Vreti sa cautati un anumit cont?->apasati tasta 1
+            //   ....o metoda prin care cereti detalii despre contul pe care vrem sa-l gasim 
+            //       si desigur sa il cautam iar dupa aceea sa-l printam
+            //su vreti sa le accesati pe toate? ->apasati tasta 2
+                manager.printAllConturi();
+                break;
+            }
+            
         default:
             std::cout << "Optiune invalida\n";
             break;

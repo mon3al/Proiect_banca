@@ -17,4 +17,5 @@ public:
 	void adaugareCont();
 	int GetNumarConturi();
 	void printAllConturi();
+	void CautaCont();
 };

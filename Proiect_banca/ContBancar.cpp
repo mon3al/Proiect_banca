@@ -14,7 +14,7 @@ std::string ContBancar::getNume() const
     return m_nume;
 }
 
-std::string ContBancar::getPreume() const
+std::string ContBancar::getPrenume() const
 {
 	return m_prenume;
 }
