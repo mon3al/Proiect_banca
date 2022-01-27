@@ -28,3 +28,10 @@ float ContBancar::getSold() const
 {
 	return m_sold;
 }
+
+void ContBancar::ManipulareSold(float suma)
+{
+	m_sold = +suma;
+}
+
+

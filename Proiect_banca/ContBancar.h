@@ -21,5 +21,7 @@ public:
 		std::string getPrenume() const;
 		std::string getIban() const;
 		float getSold() const;
+		void ManipulareSold(float suma);
+		
 };
 

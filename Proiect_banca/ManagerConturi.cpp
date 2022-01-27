@@ -1,4 +1,5 @@
 #include "ManagerConturi.h"
+#include<algorithm>
 
 
 // Tema Adaptati metoda Create Iban pentru a genera ibanuri unice
@@ -106,8 +107,33 @@
 		 break;
 	 }
 	 
-              
+  
+ }
 
+ void ManagerConturi::EraseAccount()
+ {
+	 std::cout << " Introduceti datele contului care urmeaza sa fie sters \n";
+	 ContBancar* cont = FindAccount();
+	 std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
+	 m_listaConturi.erase(it);
+	 delete cont;
+ }
+
+
+ void ManagerConturi::ManipulareSold()
+ {
+	 ContBancar* cont = FindAccount();
+	 if (cont != nullptr)
+	 {
+		 float valoare;
+		 std::cout << "Introduceti suma pe care doriti sa o depuneti :\n ";
+		 std::cin >> valoare;
+			 cont->ManipulareSold(valoare);
+	 }
+	 else
+	 {
+		 std::cout << " Contul este inexistent\n";
+	 }
  }
 
  std::string ManagerConturi::CreateIban()
@@ -125,4 +151,20 @@
  std::string ManagerConturi::CreateIban1(std::string Nume, std::string PreNume)
  {
 	 return std::string();
+ }
+
+ ContBancar* ManagerConturi::FindAccount()
+ {
+	 std::string nume;
+	 std::cout << " Nnmele titularului : \n";
+	 std::cin >> nume;
+	 // TODO trebuie exstins fie face o petoda ce accepta nume sau prenume
+	 // fie face cumva in aceasta metoda
+	 for (auto& cont:m_listaConturi)
+	 {
+		 if (cont->getNume() == nume)
+			 return cont;
+	 }
+	 std::cout << "Titularul nu a fost gasit \n";
+	 return nullptr;
  }

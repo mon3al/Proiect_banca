@@ -13,9 +13,12 @@ private:
     //Format:RO44ItSchool(caractere alfa-numerice - 5)
 	std::string CreateIban();
 	std::string CreateIban1(std::string Nume, std::string PreNume);
+	ContBancar* FindAccount();
 public:
 	void adaugareCont();
 	int GetNumarConturi();
 	void printAllConturi();
 	void CautaCont();
+	void EraseAccount();
+	void ManipulareSold();
 };
