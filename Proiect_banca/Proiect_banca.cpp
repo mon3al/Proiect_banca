@@ -46,7 +46,7 @@ int main()
         {
         case 1:
             std::cout << "Ati ales optiuna 1\n";
-            std::cout << " Numarul total de contunturi este :" << manager.GetNumarConturi()<< std::endl;
+            std::cout << " Numarul total de conturi este :" << manager.GetNumarConturi()<< std::endl;
             break;
         case 2:
             std::cout << "Ati ales optiuna 2\n";
@@ -55,6 +55,7 @@ int main()
             break;
         case 3:
             std::cout << "Ati ales optiuna 3\n";
+            manager.ModificareCont();
             break;
         case 4:
             std::cout << "Ati ales optiuna 4\n";
@@ -81,7 +82,7 @@ int main()
                 //Vreti sa cautati un anumit cont?->apasati tasta 1
             //   ....o metoda prin care cereti detalii despre contul pe care vrem sa-l gasim 
             //       si desigur sa il cautam iar dupa aceea sa-l printam
-            //su vreti sa le accesati pe toate? ->apasati tasta 2
+            //sau vreti sa le accesati pe toate? ->apasati tasta 2
                 manager.printAllConturi();
                 break;
             }

@@ -21,4 +21,5 @@ public:
 	void CautaCont();
 	void EraseAccount();
 	void ManipulareSold();
+	void ModificareCont();
 };

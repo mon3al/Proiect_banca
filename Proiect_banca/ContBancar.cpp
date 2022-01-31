@@ -34,4 +34,10 @@ void ContBancar::ManipulareSold(float suma)
 	m_sold = +suma;
 }
 
+void ContBancar::ModificareCont(std::string nume_modif, std::string prenume_modif)
+{
+	m_nume = nume_modif;
+	m_prenume = prenume_modif;
+}
+
 

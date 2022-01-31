@@ -136,6 +136,25 @@
 	 }
  }
 
+ void ManagerConturi::ModificareCont()
+ {
+	 std::cout << " Introduceti datele contului care urmeaza sa fie modificat \n";
+	 ContBancar* cont = FindAccount();
+	 if (cont != nullptr)
+	 {
+		 std::string altnume, altprenume;
+		 std::cout << "Introduceti numele modificat :\n ";
+		 std::cin >> altnume;
+		 std::cout << "Introduceti prenumele modificat :\n ";
+		 std::cin >> altprenume;
+		 cont->ModificareCont(altnume, altprenume);
+	 }
+	 else
+	 {
+		 std::cout << " Contul este inexistent\n";
+	 }
+ }
+
  std::string ManagerConturi::CreateIban()
  {
 	 std::string IBAN= "RO44ItSchool", IBAn;
@@ -155,16 +174,38 @@
 
  ContBancar* ManagerConturi::FindAccount()
  {
-	 std::string nume;
-	 std::cout << " Nnmele titularului : \n";
-	 std::cin >> nume;
-	 // TODO trebuie exstins fie face o petoda ce accepta nume sau prenume
-	 // fie face cumva in aceasta metoda
-	 for (auto& cont:m_listaConturi)
+	 int cauta_dupa;
+	 std::string nume, prenume;
+	 std::cout << "Introduceti datele de cautare\n";
+	 std::cout <<" 1-> Numele titularului\n";
+	 std::cout <<" 2-> Prenumele titularului\n";
+	 std::cin >> cauta_dupa;
+	 switch(cauta_dupa)
 	 {
-		 if (cont->getNume() == nume)
-			 return cont;
+	 case 1:
+		 std::cout << " Numele titularului : \n";
+		 std::cin >> nume;
+		 // TODO trebuie exstins fie face o petoda ce accepta nume sau prenume
+		 // fie face cumva in aceasta metoda
+		 for (auto& cont : m_listaConturi)
+		 {
+			 if (cont->getNume() == nume)
+				 return cont;
+		 }
+		 std::cout << "Titularul nu a fost gasit \n";
+		 return nullptr;
+		 break;
+	 case 2:
+		 std::cout << " Prenumele titularului : \n";
+		 std::cin >> prenume;
+		 for (auto& cont : m_listaConturi)
+		 {
+			 if (cont->getPrenume() == prenume)
+				 return cont;
+		 }
+		 std::cout << "Titularul nu a fost gasit \n";
+		 return nullptr;
+		 break;
 	 }
-	 std::cout << "Titularul nu a fost gasit \n";
-	 return nullptr;
+	 
  }
