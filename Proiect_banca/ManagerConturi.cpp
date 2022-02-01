@@ -16,6 +16,7 @@
 	std::cout << iban<<std::endl;
 	ContBancar* cont = new ContBancar(nume, prenume, iban);
 	m_listaConturi.push_back(cont);
+	m_fileManager->WriteToCSV(nume, prenume, iban, cont->getSold());
 	//system("cls");
 }
 
@@ -153,6 +154,16 @@
 	 {
 		 std::cout << " Contul este inexistent\n";
 	 }
+ }
+
+ ManagerConturi::ManagerConturi()
+ {
+	 m_fileManager = new FileManager();
+ }
+
+ ManagerConturi::~ManagerConturi()
+ {
+	 delete m_fileManager;
  }
 
  std::string ManagerConturi::CreateIban()

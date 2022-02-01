@@ -2,6 +2,7 @@
 #include "ContBancar.h"
 #include<vector>
 #include <iostream>
+#include "FileManager.h"
 
 
 class ManagerConturi
@@ -12,8 +13,9 @@ private:
 	//Tema: Adaptati metoda CreateIban pentru a genera Ibanuri unice
     //Format:RO44ItSchool(caractere alfa-numerice - 5)
 	std::string CreateIban();
-	std::string CreateIban1(std::string Nume, std::string PreNume);
+	std::string CreateIban1(std::string Nume, std::string PreNume); //Todo IBAN is not entirely unique because if we stop the program it starts reusing keys
 	ContBancar* FindAccount();
+	FileManager* m_fileManager;
 public:
 	void adaugareCont();
 	int GetNumarConturi();
@@ -22,4 +24,6 @@ public:
 	void EraseAccount();
 	void ManipulareSold();
 	void ModificareCont();
+	ManagerConturi();
+	~ManagerConturi();
 };
