@@ -1,5 +1,6 @@
 #include "ManagerConturi.h"
 #include<algorithm>
+#include <sstream>
 
 
 // Tema Adaptati metoda Create Iban pentru a genera ibanuri unice
@@ -12,8 +13,9 @@
 	std::cin >> nume;
 	std::cout << "Introduceti prenumele persoanei:\n";
 	std::cin >> prenume;
+
 	iban = CreateIban();
-	std::cout << iban<<std::endl;
+	//std::cout << iban<<std::endl;
 	ContBancar* cont = new ContBancar(nume, prenume, iban);
 	m_listaConturi.push_back(cont);
 	m_fileManager->WriteToCSV(nume, prenume, iban, cont->getSold());
@@ -159,6 +161,8 @@
  ManagerConturi::ManagerConturi()
  {
 	 m_fileManager = new FileManager();
+	 //populam lista conturi cu ce se afla in .csv
+	 m_listaConturi = m_fileManager->ReadContBancarFromCSV();
  }
 
  ManagerConturi::~ManagerConturi()
@@ -170,18 +174,16 @@
  {
 	 std::string IBAN= "RO44ItSchool", IBAn;
 	 char alphanumeric[] = "0123456789QWERTYUIOPLKJHGFDSAZXCVBNM";
+	 srand(time(0));
 	 for (int i = 0; i < 5; i++)
 	 {
 		 IBAn = alphanumeric[rand() % (sizeof(alphanumeric) - 1)]; 
 		 IBAN = IBAN + IBAn;
 	 }
 	 return IBAN;
+	 
 }
 
- std::string ManagerConturi::CreateIban1(std::string Nume, std::string PreNume)
- {
-	 return std::string();
- }
 
  ContBancar* ManagerConturi::FindAccount()
  {

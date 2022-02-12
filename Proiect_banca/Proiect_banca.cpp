@@ -20,6 +20,10 @@
 //
 //    3. Un sistem in care putem sa salvam datele acestea intr - un fisier local(CSV file)
 //
+//ToDo: la optiunea modificare cont, schimbarea in cauza trebuie facuta si in .CSV
+//      la optiunea stergere cont dupa ce este sters din m_lista_conturi, trebuie sters si din .CSV
+//      un sistem de user si parola ca sa asiguram ca aoperatorul poate sa lucreze pe statia respectiva
+// la optiunea eliberare/depunere modificarile sa fie reflectate si in .csv
 
 #include <iostream>
 #include"ManagerConturi.h"

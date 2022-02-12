@@ -12,8 +12,7 @@ private:
 	//TODO: metoda CreateIban trebuie sa genereze un IBan unic
 	//Tema: Adaptati metoda CreateIban pentru a genera Ibanuri unice
     //Format:RO44ItSchool(caractere alfa-numerice - 5)
-	std::string CreateIban();
-	std::string CreateIban1(std::string Nume, std::string PreNume); //Todo IBAN is not entirely unique because if we stop the program it starts reusing keys
+	std::string CreateIban(); // Todo IBAN is not entirely unique because if we stop the program it starts reusing keys
 	ContBancar* FindAccount();
 	FileManager* m_fileManager;
 public:
